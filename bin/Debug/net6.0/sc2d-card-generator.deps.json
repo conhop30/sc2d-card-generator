@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "sc2d-card-generator/1.0.0": {
+        "runtime": {
+          "sc2d-card-generator.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "sc2d-card-generator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
