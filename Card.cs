@@ -76,8 +76,7 @@ public class Card {
         this.shield = newShield;
     }
 
-    public virtual void displayCard() {
-        /****** Display the top line ******/
+    public void displayCardName() {
         // declare default bottom line length
         int topLine = 14;
         // get the character length of the race
@@ -110,44 +109,68 @@ public class Card {
         foreach (var x in topRightSideDash) {
             Console.Write("-");
         }
+    }
 
-        /*************************************/ 
-        // Display the middle section of the card
-        Console.WriteLine("");
-        Console.WriteLine($"|" + getCostMineral() + "|        |" + getCostGas() + "|");
-        Console.WriteLine("|-          -|");
-        Console.WriteLine("|            |");
+    public bool textWrapper() {
+        // Declare variables
+        int currentWordLength = 0;
+        int usedTextSpace = 0;
+        int wordLengthCounter = 0;
+        char nextChar = getCardText()[wordLengthCounter];
+        bool wrap = false;
 
-        /***** Display the text of the cards effect *******/
+        // Get length of the next word
+        while (nextChar != ' ') {
+            currentWordLength++;
+            usedTextSpace = currentWordLength;
+            wordLengthCounter++;
+            nextChar = getCardText()[wordLengthCounter];
+        }
+
+        // Compare length of next word to the spaces left to the card border
+        if (usedTextSpace + currentWordLength >= 12) {
+            return wrap = true;
+        }
+        else {
+            return wrap;
+        }
+    }
+    
+
+    public void displayCardText() {
         // Start the left edge of the card
         Console.Write("|");
 
-        // Card text loop
+        // Declare variables
+        int cardWidth = 12;
+        int i = 0;
+        int totalCharCounter = 0;
+        char effectChar = getCardText()[totalCharCounter];
+        int cardTextLength = getCardText().Length;
         bool isTextDone = false;
-        while (isTextDone != true) {
-            // Declare variables
-            int cardWidth = 12;
-            int i = 0;
-            int totalLoopCounter = 0;
-            char effectChar = getCardText()[totalLoopCounter];
-            int cardTextLength = getCardText().Length;
 
+        // Card text loop
+        while (isTextDone != true) {
             // Check if loop needs to run again
-            while (totalLoopCounter < cardTextLength) {
+            while (totalCharCounter < cardTextLength) {
                 // If card row length is less than card width
                 if (i < cardWidth) {
-                    // Write character to screen
-                    Console.Write(effectChar);
-                    // Advance cardWidth counter
-                    i++;
-                    // Advance the index of the cardText
-                    totalLoopCounter++;
-                    // IndexOutOfRange check
-                    if (totalLoopCounter != getCardText().Length) {
-                        effectChar = getCardText()[totalLoopCounter];
+                    textWrapper();
+                    // Validate if the word will be broken by the cardWidth
+                    if (textWrapper() == false) {
+                        // Write character to screen
+                        Console.Write(effectChar);
+                        // Advance cardWidth counter
+                        i++;
+                        // Advance the index of the cardText
+                        totalCharCounter++;
+                        // IndexOutOfRange check
+                        if (totalCharCounter != getCardText().Length) {
+                            effectChar = getCardText()[totalCharCounter];
+                        }
                     }
                 }
-                else if (i == cardWidth){
+                else {
                     // Reset the looping variable
                     i = 0;
                     // Close the right edge of the card
@@ -168,15 +191,9 @@ public class Card {
         // Close the right edge of the the card
         Console.WriteLine("|");
         }
+    }
 
-        //Console.WriteLine("");
-        Console.WriteLine("|            |");
-        Console.WriteLine("|            |");
-        Console.WriteLine("|_          _|");
-        Console.WriteLine("|" + getPower() + "|        |" + getHealth() + "|");
-
-        /*************************************/
-        /****** Display the bottom line ******/
+    public void displayCardRace() {
         // declare default bottom line length
         int bottomLine = 14;
         // get the character length of the race
@@ -209,6 +226,30 @@ public class Card {
         foreach (var x in bottomRightSideDash) {
             Console.Write("-");
         }
-        /*************************************/
+    }
+
+    public void displayCard() {
+
+        displayCardName();
+        if (getRace() != "Protoss" || getRace() != "protoss") {
+            displayCardFrameAndStats();
+        }
+        else {
+            Protoss protoss = new Protoss();
+            protoss.displayCardFrameAndStats();
+        }
+        displayCardRace();
+    }
+
+    public virtual void displayCardFrameAndStats() {
+        // Display the middle section of the card
+        Console.WriteLine("");
+        Console.WriteLine($"|" + getCostMineral() + "|        |" + getCostGas() + "|");
+        Console.WriteLine("|-          -|");
+        Console.WriteLine("|            |");
+        displayCardText();
+        Console.WriteLine("|_          _|");
+        Console.WriteLine("|" + getPower() + "|        |" + getHealth() + "|");
+
     }
 }
