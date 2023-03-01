@@ -13,3 +13,18 @@ C:\Users\Connor Hopkins\OneDrive\Documents\GitHub\sc2d-card-generator\obj\Debug\
 C:\Users\Connor Hopkins\OneDrive\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.pdb
 C:\Users\Connor Hopkins\OneDrive\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.genruntimeconfig.cache
 C:\Users\Connor Hopkins\OneDrive\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\ref\sc2d-card-generator.dll
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.csproj.AssemblyReference.cache
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.AssemblyInfoInputs.cache
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.AssemblyInfo.cs
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.csproj.CoreCompileInputs.cache
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.dll
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\refint\sc2d-card-generator.dll
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.pdb
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\bin\Debug\net6.0\sc2d-card-generator.exe
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\bin\Debug\net6.0\sc2d-card-generator.deps.json
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\bin\Debug\net6.0\sc2d-card-generator.runtimeconfig.json
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\bin\Debug\net6.0\sc2d-card-generator.dll
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\bin\Debug\net6.0\sc2d-card-generator.pdb
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\sc2d-card-generator.genruntimeconfig.cache
+C:\Users\conhop\Documents\GitHub\sc2d-card-generator\obj\Debug\net6.0\ref\sc2d-card-generator.dll

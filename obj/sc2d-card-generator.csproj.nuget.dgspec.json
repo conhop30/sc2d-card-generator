@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Connor Hopkins\\OneDrive\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj": {}
+    "C:\\Users\\conhop\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Connor Hopkins\\OneDrive\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj": {
+    "C:\\Users\\conhop\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Connor Hopkins\\OneDrive\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj",
+        "projectUniqueName": "C:\\Users\\conhop\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj",
         "projectName": "sc2d-card-generator",
-        "projectPath": "C:\\Users\\Connor Hopkins\\OneDrive\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj",
-        "packagesPath": "C:\\Users\\Connor Hopkins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Connor Hopkins\\OneDrive\\Documents\\GitHub\\sc2d-card-generator\\obj\\",
+        "projectPath": "C:\\Users\\conhop\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj",
+        "packagesPath": "C:\\Users\\conhop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\conhop\\Documents\\GitHub\\sc2d-card-generator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Connor Hopkins\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\conhop\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -48,12 +48,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.14, 6.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

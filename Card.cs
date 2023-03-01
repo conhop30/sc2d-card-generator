@@ -9,76 +9,79 @@ public class Card {
     private string cardName = "defaultName";
     private string cardText = "defaultText";
     private string race = "defaultRace";
+    private static int topLine = 14;
+    private int validTextSpace = topLine - 2;
 
     // Getter and Setter methods
-    public string getRace() {
-        return race;
-    }
-
-    public void setRace(string newRace) {
-        this.race = newRace;
-    }
-
-    public string getCardText() {
-        return cardText;
-    }
-
-    public void setCardText(string newCardText) {
-        this.cardText = newCardText;
-    }
-
-    public string getCardName() {
-        return cardName;
-    }
-
-    public void setCardName(string newCardName) {
-        this.cardName = newCardName;
-    }
-
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int newPower) {
-        this.power = newPower;
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int newHealth) {
-        this.health = newHealth;
-    }
-
-    public int getCostGas() {
-        return costGas;
-    }
-
-    public void setCostGas(int newCostGas) {
-        this.costGas = newCostGas;
-    }
-
-    public int getCostMineral() {
-        return costMineral;
-    }
-
-    public void setCostMineral(int newCostMineral) {
-        this.costMineral = newCostMineral;
-    }
-
+    public int getTopLine() { return topLine; }
+    public int getValidTextSpace() { return validTextSpace; }
+    public void setValidTextSpace(int newValidTextSpace) { this.validTextSpace = newValidTextSpace; }
+    public string getRace() { return race; }
+    public void setRace(string newRace) { this.race = newRace; }
+    public string getCardText() { return cardText; }
+    public void setCardText(string newCardText) { this.cardText = newCardText; }
+    public string getCardName() { return cardName; }
+    public void setCardName(string newCardName) { this.cardName = newCardName; }
+    public int getPower() { return power; }
+    public void setPower(int newPower) { this.power = newPower; }
+    public int getHealth() { return health; }
+    public void setHealth(int newHealth) { this.health = newHealth; }
+    public int getCostGas() { return costGas; }
+    public void setCostGas(int newCostGas) { this.costGas = newCostGas; }
+    public int getCostMineral() { return costMineral; }
+    public void setCostMineral(int newCostMineral) { this.costMineral = newCostMineral; }
     // Only for Protoss cards
-    public int getShield() {
-        return shield;
-    }
-    
-    public void setShield(int newShield) {
-        this.shield = newShield;
-    }
+    public int getShield() { return shield; }  
+    public void setShield(int newShield) { this.shield = newShield; }
 
+    public bool textWrapper() {
+        // Separate words in the card text into individual strings.
+        // Allows for easier tracking of words individually instead of a singular string.
+       string[] wordsInText = getCardText().Split(' ');
+       
+       // Declare tracker variables
+       int currentWordLength = 0;
+       int usedTextSpace = 0;
+       int wordLengthCounter = 0;
+       int i = 0;
+ 
+        while (i != wordsInText.Count()) {
+            usedTextSpace = wordsInText[i].Length + wordsInText[i - 1].Length;
+            if (usedTextSpace > validTextSpace) {
+                
+            }
+        
+        }
+
+        return false;
+    }
+    // public bool textWrapper() {
+    //     // Declare variables
+    //     int currentWordLength = 0;
+    //     int usedTextSpace = 0;
+    //     int wordLengthCounter = 0;
+    //     char nextChar = getCardText()[wordLengthCounter];
+    //     bool wrap = false;
+
+    //     // Get length of the next word
+    //     while (nextChar != ' ') {
+    //         currentWordLength++;
+    //         usedTextSpace = currentWordLength;
+    //         wordLengthCounter++;
+    //         nextChar = getCardText()[wordLengthCounter];
+    //     }
+
+    //     // Compare length of next word to the spaces left to the card border
+    //     if (usedTextSpace + currentWordLength >= validTextSpace) {
+    //         return wrap = true;
+    //     }
+    //     else {
+    //         return wrap;
+    //     }
+    // }
+
+    // Begin displaying the card itself
     public void displayCardName() {
-        // declare default bottom line length
-        int topLine = 14;
         // get the character length of the race
         int nameLength = getCardName().Length;
         // reduce the bottom line by the amount of characters in the race
@@ -110,39 +113,13 @@ public class Card {
             Console.Write("-");
         }
     }
-
-    public bool textWrapper() {
-        // Declare variables
-        int currentWordLength = 0;
-        int usedTextSpace = 0;
-        int wordLengthCounter = 0;
-        char nextChar = getCardText()[wordLengthCounter];
-        bool wrap = false;
-
-        // Get length of the next word
-        while (nextChar != ' ') {
-            currentWordLength++;
-            usedTextSpace = currentWordLength;
-            wordLengthCounter++;
-            nextChar = getCardText()[wordLengthCounter];
-        }
-
-        // Compare length of next word to the spaces left to the card border
-        if (usedTextSpace + currentWordLength >= 12) {
-            return wrap = true;
-        }
-        else {
-            return wrap;
-        }
-    }
     
-
     public void displayCardText() {
         // Start the left edge of the card
         Console.Write("|");
 
         // Declare variables
-        int cardWidth = 12;
+        int cardWidth = validTextSpace;
         int i = 0;
         int totalCharCounter = 0;
         char effectChar = getCardText()[totalCharCounter];
@@ -183,7 +160,7 @@ public class Card {
             isTextDone = true;
 
             // Get the remaining empty space between the text and the right of the card
-            while (i < 12) {
+            while (i < validTextSpace) {
                 Console.Write(" ");
                 i++;
             }
@@ -191,6 +168,31 @@ public class Card {
         // Close the right edge of the the card
         Console.WriteLine("|");
         }
+    }
+
+    public virtual void displayCard() {
+
+        displayCardName();
+        if (getRace() != "Protoss" || getRace() != "protoss") {
+            displayCardFrameAndStats();
+        }
+        else {
+            Protoss protoss = new Protoss();
+            protoss.displayCardFrameAndStats();
+        }
+        displayCardRace();
+    }
+
+    public virtual void displayCardFrameAndStats() {
+        // Display the middle section of the card
+        Console.WriteLine("");
+        Console.WriteLine($"|" + getCostMineral() + "|        |" + getCostGas() + "|");
+        Console.WriteLine("|-          -|");
+        Console.WriteLine("|            |");
+        displayCardText();
+        Console.WriteLine("|_          _|");
+        Console.WriteLine("|" + getPower() + "|        |" + getHealth() + "|");
+
     }
 
     public void displayCardRace() {
@@ -226,30 +228,5 @@ public class Card {
         foreach (var x in bottomRightSideDash) {
             Console.Write("-");
         }
-    }
-
-    public void displayCard() {
-
-        displayCardName();
-        if (getRace() != "Protoss" || getRace() != "protoss") {
-            displayCardFrameAndStats();
-        }
-        else {
-            Protoss protoss = new Protoss();
-            protoss.displayCardFrameAndStats();
-        }
-        displayCardRace();
-    }
-
-    public virtual void displayCardFrameAndStats() {
-        // Display the middle section of the card
-        Console.WriteLine("");
-        Console.WriteLine($"|" + getCostMineral() + "|        |" + getCostGas() + "|");
-        Console.WriteLine("|-          -|");
-        Console.WriteLine("|            |");
-        displayCardText();
-        Console.WriteLine("|_          _|");
-        Console.WriteLine("|" + getPower() + "|        |" + getHealth() + "|");
-
     }
 }

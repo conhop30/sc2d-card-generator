@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "KuZblvnMkO/Se9Kd5OJI1c+u5s7QgHg2YhSfO2MG1r93yy2VlE/06wdHfpTLPb4/8DdVdTrwREnf3dPAOMCiYQ==",
+  "dgSpecHash": "BQJKSM5dOKo0aIrqUbLOhIXo3xuzlXfZPqBHJL1GPL3R0WfmwUyK1mY5o391jb5XHiCDkz66YgiVDyExixcZzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Connor Hopkins\\OneDrive\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\conhop\\Documents\\GitHub\\sc2d-card-generator\\sc2d-card-generator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\conhop\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\conhop\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\conhop\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\conhop\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.14\\microsoft.netcore.app.host.win-x64.6.0.14.nupkg.sha512"
+  ],
   "logs": []
 }
