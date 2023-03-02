@@ -69,7 +69,19 @@ public class Card {
     }
     
     public bool textWrapper(int i, int currentWordLength, int usedTextSpace, int wordLengthCounter, string wordsInText) {
- 
+        // Declare variables
+        string line = "" ?? "";
+        int lineLength = 0;
+        int k = 0;
+        string wordsInText[] = getCardText().Split(' ');
+
+        foreach (var x in wordsInText) {
+            if (lineLength + x + 1 > validTextSpace) {
+
+            }
+        }
+
+
         while (i != wordsInText.Count()) {
             usedTextSpace = wordsInText.Length;
             if (usedTextSpace > validTextSpace) {
@@ -111,6 +123,7 @@ public class Card {
                 // start the new card border
                 Console.Write("|");
             }
+            isTextDone = true;
         }
 
         // // Start the left edge of the card
