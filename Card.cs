@@ -34,52 +34,6 @@ public class Card {
     public int getShield() { return shield; }  
     public void setShield(int newShield) { this.shield = newShield; }
 
-    public bool textWrapper() {
-        // Separate words in the card text into individual strings.
-        // Allows for easier tracking of words individually instead of a singular string.
-       string[] wordsInText = getCardText().Split(' ');
-       
-       // Declare tracker variables
-       int currentWordLength = 0;
-       int usedTextSpace = 0;
-       int wordLengthCounter = 0;
-       int i = 0;
- 
-        while (i != wordsInText.Count()) {
-            usedTextSpace = wordsInText[i].Length + wordsInText[i - 1].Length;
-            if (usedTextSpace > validTextSpace) {
-                
-            }
-        
-        }
-
-        return false;
-    }
-    // public bool textWrapper() {
-    //     // Declare variables
-    //     int currentWordLength = 0;
-    //     int usedTextSpace = 0;
-    //     int wordLengthCounter = 0;
-    //     char nextChar = getCardText()[wordLengthCounter];
-    //     bool wrap = false;
-
-    //     // Get length of the next word
-    //     while (nextChar != ' ') {
-    //         currentWordLength++;
-    //         usedTextSpace = currentWordLength;
-    //         wordLengthCounter++;
-    //         nextChar = getCardText()[wordLengthCounter];
-    //     }
-
-    //     // Compare length of next word to the spaces left to the card border
-    //     if (usedTextSpace + currentWordLength >= validTextSpace) {
-    //         return wrap = true;
-    //     }
-    //     else {
-    //         return wrap;
-    //     }
-    // }
-
     // Begin displaying the card itself
     public void displayCardName() {
         // get the character length of the race
@@ -114,60 +68,104 @@ public class Card {
         }
     }
     
+    public bool textWrapper(int i, int currentWordLength, int usedTextSpace, int wordLengthCounter, string wordsInText) {
+ 
+        while (i != wordsInText.Count()) {
+            usedTextSpace = wordsInText.Length;
+            if (usedTextSpace > validTextSpace) {
+                // reset loop variable for line breaks
+                usedTextSpace = 0;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public void displayCardText() {
+        // Declare variables
+        int i = 0;
+        int usedTextSpace = 0;
+        int currentWordLength = 0;
+        int wordLengthCounter = 0;
+        int cardWidth = validTextSpace;
+        bool isTextDone = false;
+        
         // Start the left edge of the card
         Console.Write("|");
 
-        // Declare variables
-        int cardWidth = validTextSpace;
-        int i = 0;
-        int totalCharCounter = 0;
-        char effectChar = getCardText()[totalCharCounter];
-        int cardTextLength = getCardText().Length;
-        bool isTextDone = false;
-
-        // Card text loop
         while (isTextDone != true) {
-            // Check if loop needs to run again
-            while (totalCharCounter < cardTextLength) {
-                // If card row length is less than card width
-                if (i < cardWidth) {
-                    textWrapper();
-                    // Validate if the word will be broken by the cardWidth
-                    if (textWrapper() == false) {
-                        // Write character to screen
-                        Console.Write(effectChar);
-                        // Advance cardWidth counter
-                        i++;
-                        // Advance the index of the cardText
-                        totalCharCounter++;
-                        // IndexOutOfRange check
-                        if (totalCharCounter != getCardText().Length) {
-                            effectChar = getCardText()[totalCharCounter];
-                        }
-                    }
-                }
-                else {
-                    // Reset the looping variable
-                    i = 0;
-                    // Close the right edge of the card
-                    Console.WriteLine("|");
-                    // And start the next line with the left edge of the card
-                    Console.Write("|");
-                }
-            }
-            // End the card text loop
-            isTextDone = true;
+            // Separate words in the card text into individual strings.
+            // Allows for easier tracking of words individually instead of a singular string.
+            string[] wordsInText = getCardText().Split(' ');
 
-            // Get the remaining empty space between the text and the right of the card
-            while (i < validTextSpace) {
-                Console.Write(" ");
+            bool textWrapperResult = textWrapper(i, currentWordLength, usedTextSpace, wordLengthCounter, wordsInText[i]);
+            if (textWrapperResult == false) {
+                Console.Write(wordsInText[i]);
                 i++;
+                usedTextSpace += wordsInText[i].Length;
             }
-
-        // Close the right edge of the the card
-        Console.WriteLine("|");
+            else {
+                // display the card border
+                Console.WriteLine("|");
+                // start the new card border
+                Console.Write("|");
+            }
         }
+
+        // // Start the left edge of the card
+        // Console.Write("|");
+
+        // // Declare variables
+        // int cardWidth = validTextSpace;
+        // int i = 0;
+        // int totalCharCounter = 0;
+        // char effectChar = getCardText()[totalCharCounter];
+        // int cardTextLength = getCardText().Length;
+        // bool isTextDone = false;
+
+        // // Card text loop
+        // while (isTextDone != true) {
+        //     // Check if loop needs to run again
+        //     while (totalCharCounter < cardTextLength) {
+        //         // If card row length is less than card width
+        //         if (i < cardWidth) {
+        //             textWrapper();
+        //             // Validate if the word will be broken by the cardWidth
+        //             if (textWrapper() == false) {
+        //                 // Write character to screen
+        //                 Console.Write(effectChar);
+        //                 // Advance cardWidth counter
+        //                 i++;
+        //                 // Advance the index of the cardText
+        //                 totalCharCounter++;
+        //                 // IndexOutOfRange check
+        //                 if (totalCharCounter != getCardText().Length) {
+        //                     effectChar = getCardText()[totalCharCounter];
+        //                 }
+        //             }
+        //         }
+        //         else {
+        //             // Reset the looping variable
+        //             i = 0;
+        //             // Close the right edge of the card
+        //             Console.WriteLine("|");
+        //             // And start the next line with the left edge of the card
+        //             Console.Write("|");
+        //         }
+        //     }
+        //     // End the card text loop
+        //     isTextDone = true;
+
+        //     // Get the remaining empty space between the text and the right of the card
+        //     while (i < validTextSpace) {
+        //         Console.Write(" ");
+        //         i++;
+        //     }
+
+        // // Close the right edge of the the card
+        // Console.WriteLine("|");
+        // }
     }
 
     public virtual void displayCard() {
